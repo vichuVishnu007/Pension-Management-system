@@ -1,0 +1,88 @@
+<body class="gradient-custom">
+<div class="container-fluid p-0" *ngIf=toggler>
+<div class="container-fluid header">
+<p class="heading-text">Enter Pensioner Details here</p>
+</div>
+<div class="container-fluid content">
+<div class="alert alert-danger alert-dismissible fade show alert-styling" *ngIf=alert>
+  <button type="button" class="close" (click)="alert=false">&times;</button>
+  <strong>Invalid pensioner detail provided !</strong> please provide valid detail.
+</div>
+<form [formGroup]="pensionDetails" (ngSubmit)="submitDetails()">
+    <div class="row" >
+        <div class="col-sm-8">
+            <label class="form-label">USERNAME : </label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Name">
+            <span class="form-errors" *ngIf="(pensionDetails.controls['name'].touched || pensionDetails.controls['name'].dirty) && pensionDetails.controls['name'].invalid && pensionDetails.controls['name'].errors?.required">
+              Field is required.
+            </span>
+        </div>
+        <div class="col-sm-4">
+          <label class="form-label">DATE OF BIRTH : </label>
+            <input type="date" class="form-control" formControlName="dateOfBirth">
+            <span class="form-errors" *ngIf="(pensionDetails.controls['dateOfBirth'].touched || pensionDetails.controls['dateOfBirth'].dirty) && pensionDetails.controls['dateOfBirth'].invalid && pensionDetails.controls['dateOfBirth'].errors?.required">
+              Field is required.
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+          <label class="form-label">PAN NUMBER : </label>
+        <input type="text" class="form-control" formControlName="pan" placeholder="xxxxxxxxxxxxxxxx">
+        <span class="form-errors" *ngIf="(pensionDetails.controls['pan'].touched || pensionDetails.controls['pan'].dirty) && pensionDetails.controls['pan'].invalid && pensionDetails.controls['pan'].errors?.required">
+          Field is required.
+        </span>
+        <span class="form-errors" *ngIf="(pensionDetails.controls['pan'].touched && pensionDetails.controls['pan'].dirty) && pensionDetails.controls['pan'].invalid && pensionDetails.controls['pan'].errors?.pattern">
+          Match the Pan Format.
+        </span>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <label class="form-label">AADHAAR NUMBER : </label>
+      <input type="text" class="form-control" formControlName="aadharNumber" placeholder="xxxxxxxxxxxxxxxx">
+      <span class="form-errors" *ngIf="(pensionDetails.controls['aadharNumber'].touched || pensionDetails.controls['aadharNumber'].dirty) && pensionDetails.controls['aadharNumber'].invalid && pensionDetails.controls['aadharNumber'].errors?.required">
+        Field is required.
+      </span>
+      <span class="form-errors" *ngIf="(pensionDetails.controls['aadharNumber'].touched && pensionDetails.controls['aadharNumber'].dirty) && pensionDetails.controls['aadharNumber'].invalid && pensionDetails.controls['aadharNumber'].errors?.pattern">
+        Match the Aadhaar Format.
+      </span>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+          <label class="form-label">PENSION TYPE : </label>
+        </div>
+        <div class="form-check col-sm-7">
+            <input  class="check-box" type="radio" formControlName="pensionType" value="self">
+            <label class="form-label form-label-position">Self </label>
+          </div>
+          <div class="form-check col-sm-5">
+            <input class="check-box" type="radio" formControlName="pensionType" value="family">
+            <label class="form-label form-label-position"> Family </label>
+          </div>
+          <span class="form-errors" *ngIf="(pensionDetails.controls['pensionType'].touched || pensionDetails.controls['pensionType'].dirty) && pensionDetails.controls['pensionType'].invalid && pensionDetails.controls['pensionType'].errors?.required">
+            Field is required.
+          </span>
+    </div>
+    <div class="container-fluid footer">
+        <input type="submit" class="button-submit" value="Submit" [disabled]='!pensionDetails.valid'>
+    </div>
+</form>
+</div>
+</div>
+</body>
+<div class="loader" *ngIf=loader>
+  <div>
+  <img src="assets/loader.gif">
+</div>
+  <p class="h3 text-info">Loading...</p>
+</div>
+<div class="loader" *ngIf="authFailed">
+  <h3 class="text-warning msg-heading">Session Timout</h3>
+  <p class="text-info">Redirecting to Login in 3 seconds....</p>
+</div>
+
+<app-pension-disbursement *ngIf=!toggler [data]="pensionerData" [aadhar]="aadhar"></app-pension-disbursement>
+
+

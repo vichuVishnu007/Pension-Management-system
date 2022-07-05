@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,100;1,300&display=swap');
+
+
+
+.gradient-custom {
+  background: rgb(252,156,0);
+  background: linear-gradient(164deg, rgba(252,156,0,0.39866368910845584) 0%, rgba(255,255,255,0.6311566863073355) 46%, rgba(0,255,166,0.4939017843465511) 100%);
+}
+
+.pensionImg{
+  height: 250px;
+  width:250px;
+}
+/*Enter button css*/
+.enter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  background-color: #2a2a2b;
+  background-color: rgba(17, 17, 17, 0.67);
+  z-index: 999999999;
+  text-align: center;
+  line-height: 100px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 0 15px 2px #000;
+}
+.enter:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80px;
+  height: 80px;
+  background-color: #3fb4be;
+  background-color: rgba(0, 235, 255, 0.44);
+  z-index: 999999999;
+  text-align: center;
+  line-height: 80px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 0 15px 2px #000;
+}
+.enter:hover {
+  box-shadow: 0 0 4px 4px #3fb4be;
+}
+.enter:hover:after {
+  background-color: #2a2a2b;
+  background-color: rgba(17, 17, 17, 0.67);
+}
+.enter:after,
+.enter:hover:after,
+.enter,
+.enter:hover {
+  transition: all 1s ease;
+}
+/* Enter button Styling End */
+
+/*Page  Background*/
+.home {
+  box-sizing: border-box;
+  height: 92vh;
+  background-color: #d5f1f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-right img {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.index-styling{
+    /* background:url("src/assets/welcome.jpg") no-repeat center center fixed #ecf0f1; */
+    text-align:center;
+    background-size: cover;
+    background-position:top;
+    height:92vh;
+  }
+
+/* Welcome text css */
+.heading {
+  color: #0000009c;
+  font-family: "Archivo Black", sans-serif;
+}
